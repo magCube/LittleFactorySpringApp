@@ -1,5 +1,6 @@
 package org.magcube;
 
+import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 
@@ -17,6 +18,7 @@ public class GameRouter {
   public RouterFunction<ServerResponse> route(GameHandler gameHandler) {
 
     return RouterFunctions
-        .route(POST("/game").and(accept(MediaType.APPLICATION_JSON)), gameHandler::create);
+        .route(POST("/game").and(accept(MediaType.APPLICATION_JSON)), gameHandler::create)
+        .andRoute(GET("/gameboard").and(accept(MediaType.APPLICATION_JSON)), gameHandler::getGameBoardState);
   }
 }
