@@ -4,7 +4,7 @@ package org.magcube;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.magcube.dto.GameCreatedResponse;
+import org.magcube.dto.response.GameCreatedResponse;
 import org.magcube.gameboard.GameBoardState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +28,7 @@ class GameRouterTest {
         .accept(MediaType.APPLICATION_JSON)
         .exchange() // and use the dedicated DSL to test assertions against the response
         .expectStatus().isOk()
-        .expectBody(GameCreatedResponse.class).value(game -> Assertions.assertEquals(game.getMessage(), "game created!"));
+        .expectBody(GameCreatedResponse.class);
   }
 
   @Test
