@@ -1,13 +1,14 @@
 package org.magcube.database.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.magcube.database.dto.DBGame;
 import org.magcube.database.repository.GameRepository;
 import org.magcube.game.Game;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @Service
+@Slf4j
 public class GameDataAccessService {
   private final GameRepository gameRepository;
 
@@ -21,7 +22,6 @@ public class GameDataAccessService {
 
   public Mono<DBGame> insert(Game game) {
     var dbGame = DBGame.builder().game(game).build();
-    System.out.println("Inserting game: " + dbGame);
     return gameRepository.insert(dbGame);
   }
 }
