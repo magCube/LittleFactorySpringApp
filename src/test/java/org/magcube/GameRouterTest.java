@@ -40,4 +40,13 @@ class GameRouterTest {
         .expectStatus().isOk()
         .expectBody(GameBoardState.class).value(Assertions::assertNotNull);
   }
+
+  @Test
+  void testStartGameEndpoint() {
+    webTestClient // Create a POST request to test an endpoint
+        .put().uri("/startgame")
+        .accept(MediaType.APPLICATION_JSON)
+        .exchange() // and use the dedicated DSL to test assertions against the response
+        .expectStatus().isOk();
+  }
 }

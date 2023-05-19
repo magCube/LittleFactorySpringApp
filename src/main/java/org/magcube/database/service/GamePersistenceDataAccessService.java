@@ -9,10 +9,10 @@ import reactor.core.publisher.Mono;
 
 @Service
 @Slf4j
-public class GameDataAccessService {
+public class GamePersistenceDataAccessService {
   private final GameRepository gameRepository;
 
-  public GameDataAccessService(GameRepository gameRepository) {
+  public GamePersistenceDataAccessService(GameRepository gameRepository) {
     this.gameRepository = gameRepository;
   }
 

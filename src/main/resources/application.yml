@@ -4,3 +4,5 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/littlefactory
+game:
+  datastore: local #or redis and also config url here
