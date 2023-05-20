@@ -1,4 +1,4 @@
-package org.magcube.controller;
+package org.magcube.http.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.magcube.dto.request.GameCreateRequest;
